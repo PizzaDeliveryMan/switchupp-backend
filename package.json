@@ -1,0 +1,19 @@
+{
+  "name": "rwin",
+  "version": "1.0.0",
+  "description": "An application for a university project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://ryanchew3@bitbucket.org/ryanchew3/rwin.git"
+  },
+  "author": "Ryan Chew",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/ryanchew3/rwin#readme",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}
