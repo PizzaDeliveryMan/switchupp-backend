@@ -1,8 +1,24 @@
 extends layout
 
+block scripts
+    script(type='text/javascript', src='/javascripts/home.js')
+
 block content
-    h1= message
-    #container.col
-        p やむを得ない
-        p.
-            殺せ
+    center
+        br
+        br
+        br
+        #homepageContent
+            .col
+            h1= message
+
+
+            p 安心して、痛くないから
+            p.
+                地獄に落ちて
+            //button(v-on:click='showRegisteration')Enter
+            form(action='register')
+                button.btn.btn-primary(type='Enter', href='/register') Enter
+
+        #JSobject
+            pre {"charged":"100%"}
