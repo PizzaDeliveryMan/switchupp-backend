@@ -7,7 +7,6 @@ const pug           = require('pug');
 const chai          = require('chai');
 const connect       = require('connect');
 const favicon       = require('serve-favicon');
-const vue           = require('vue');
 const anime         = require('animejs');
 const mongoose      = require('mongoose');
 
