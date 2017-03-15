@@ -29,3 +29,10 @@ EventModel.createEvent = (eventData, callback) => {
         return callback(null, data)
     })
 }
+
+EventModel.deleteEvent = (eventId, callback) => {
+    const eventToDelete = EventModel.find( {eventId}).remove((err, data) => {
+        if (err) return callback(err)
+        return callback(null, null)
+    });
+}
