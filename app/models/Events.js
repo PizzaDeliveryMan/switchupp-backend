@@ -14,10 +14,3 @@ const EventSchema = new Schema({
 const EventModel = mongoose.model('Event', UserSchema);
 
 EventSchema.index({ username: 1 }, { unique: false });
-
-EventModel.findEventById = (eventId, callback) => {
-    EventModel.findById(eventId, (err, data) => {
-        if (err) return callback(err)
-        return callback(null, data)
-    })
-}
