@@ -21,3 +21,11 @@ EventModel.findEventById = (eventId, callback) => {
         return callback(null, data)
     })
 }
+
+EventModel.createEvent = (eventData, callback) => {
+    const cewEvent = new EventModel(eventData)
+    newEvent.save((err, data) => {
+        if(err) return callback(err)
+        return callback(null, data)
+    })
+}
