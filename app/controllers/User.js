@@ -26,4 +26,13 @@ router.post('/', (req, res) => {
 
 
 
+router.delete('/:userId', (req, res) => {
+    const userId = req.params.userId;
+    const user = User.findUserById(userId, callback);
+    User.deleteUser(userId, (err, user) => {
+        if (err) return res.status(400).send(err)
+        return res.send(user)
+    })
+})
+
 module.exports = router

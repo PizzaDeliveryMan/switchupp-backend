@@ -1,4 +1,4 @@
-    const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
@@ -30,6 +30,13 @@ UserModel.createUser = (userData, callback) => {
         if (err) return callback(err)
         return callback(null, data)
     })
+}
+
+UserModel.deleteUser = (userId, callback) => {
+    const userToDelete = UserModel.find( {userId}).remove((err, data) => {
+        if (err) return callback(err)
+        return callback(null, null)
+    });
 }
 
 //Export the user model
