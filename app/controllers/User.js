@@ -25,7 +25,6 @@ router.post('/', (req, res) => {
 })
 
 
-
 router.delete('/:userId', (req, res) => {
     const userId = req.params.userId;
     const user = User.findUserById(userId, callback);

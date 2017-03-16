@@ -3,11 +3,9 @@ const path          = require('path');
 const logger        = require('morgan');
 const cookieParser  = require('cookie-parser');
 const bodyParser    = require('body-parser');
-const pug           = require('pug');
 const chai          = require('chai');
 const connect       = require('connect');
 const favicon       = require('serve-favicon');
-const anime         = require('animejs');
 const mongoose      = require('mongoose');
 
 
