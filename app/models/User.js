@@ -36,7 +36,7 @@ UserModel.createUser = (userData, callback) => {
 
 UserModel.updateUser = (userData, callback) => {
     if (userData.email) {
-
+            
     }
 }
 
