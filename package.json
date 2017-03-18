@@ -4,8 +4,8 @@
   "description": "An application for a university project",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js",
+    "start": "node app/app.js",
+    "dev": "nodemon app/app.js",
     "test": "mocha "
   },
   "repository": {
@@ -21,6 +21,7 @@
     "connect": "^3.6.0",
     "cookie-parser": "^1.4.3",
     "express": "^4.15.2",
+    "googleapis": "^18.0.0",
     "mongoose": "^4.8.6",
     "morgan": "^1.8.1",
     "path": "^0.12.7",
