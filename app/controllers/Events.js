@@ -11,3 +11,11 @@ router.get('/:eventId', (req, res) => {
         return res.send(_event);
     })
 })
+
+router.post('/', (req, res) => {
+    const user = req.body
+    Event.createEvent(eventData, (err, data) => {
+        if (err) return res.status(400).send(err)
+        return res.send(data)
+    })
+})
