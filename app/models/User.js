@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
     email: { type: String, required: true },
-    username: { type: String, required: true },
+    //username: { type: String, required: true },
     password: { type: String, required: true },
     admin: { type: Boolean, required: true},
     reputation: ( type: Number, required: true)
@@ -27,18 +27,17 @@ UserModel.findUserById = (userId, callback) => {
 }
 
 UserModel.createUser = (userData, callback) => {
-    const newUser = new UserModel(userData)
+    const newUser = new UserModel(userData);
     newUser.save((err, data) => {
         if (err) return callback(err)
         return callback(null, data)
     })
 }
 
-UserModel.deleteUser = (userId, callback) => {
-    const userToDelete = UserModel.find( {userId}).remove((err, data) => {
-        if (err) return callback(err)
-        return callback(null, null)
-    });
+UserModel.updateUser = (userData, callback) => {
+    if (userData.email) {
+
+    }
 }
 
 //Export the user model
