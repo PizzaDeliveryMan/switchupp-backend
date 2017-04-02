@@ -6,9 +6,14 @@ const Schema = mongoose.Schema;
 const EventSchema = new Schema({
     title: {type: String, required: true },
     username: (type: UserSchema.username, required: true),
-    minimumExists: (type: Boolean, required: true),
-    minimumCap: (type: Number, required: true),
-    rsvpStrict: (type: Boolean, required: true)
+    metadata: {
+        description: String,
+        address: String,
+        minimumExists: (type: Boolean, required: true),
+        minimumCap: (type: Number, required: true),
+        rsvpStrict: (type: Boolean, required: true)
+    },
+    attendingUsers: [UserSchema]
 });
 
 const EventModel = mongoose.model('Event', UserSchema);
