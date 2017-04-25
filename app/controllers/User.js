@@ -17,14 +17,14 @@ google.options({auth: OAuth2Client});
 GET /user - gets a user
 POST /user - creates a user
 */
-/*
+
 router.get('/:userId', (req, res) => {
     const userId = req.params.userId;
     User.findUserById(userId, (err, user) => {
         if (!user) return res.status(400).send("There's no user here.")
         return res.send(user)
     })
-})*/
+})
 
 router.get('/auth', (req, res) => {
     const scopes = [

@@ -7,7 +7,7 @@ const Report = require('../models/Report');
 router.get('/:ReportId', (req, res) => {
     const ReportId = req.params.ReportId;
     Report.findReportById(ReportId, (err, _Report) => {
-        if (!_Report) return res.status(400).send("There's no user here.");
+        if (!_Report) return res.status(400).send("There's no Report here.");
         return res.send(_Report);
     })
 })
