@@ -9,7 +9,8 @@ const UserSchema = new Schema({
     //username: { type: String, required: true },
     password: { type: String, required: true },
     admin: { type: Boolean, required: true},
-    reputation: ( type: Number, required: true)
+    reputation: { type: Number, required: true},
+    type: { type: Number, require: true }
 });
 
 //Create the user model

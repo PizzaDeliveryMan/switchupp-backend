@@ -11,7 +11,8 @@ const mongoose      = require('mongoose');
 
 
 // START ROUTES
-const user         = require('./controllers/user');
+const user          = require('./controllers/user');
+const report        = require('./controllers/report')
 //END ROUTES
 
 const app = express();
@@ -28,6 +29,7 @@ app.use(bodyParser.json()); // for parsing application/json
 
 //Routing
 app.use('/user', user);
+app.use('/report', report)
 
 mongoose.connect('mongodb://localhost:27017/feed-me', {}, (err) => {
     if (err) throw err;
