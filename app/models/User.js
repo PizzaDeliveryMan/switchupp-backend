@@ -22,8 +22,15 @@ UserSchema.index({ username: 1 }, { unique: true });
 
 UserModel.findUserById = (userId, callback) => {
     UserModel.findById(userId, (err, data) => {
-        if (err) return callback(err)
-        return callback(null, data)
+        if (err) return callback(err);
+        return callback(null, data);
+    })
+}
+
+UserModel.findUser = (email, callback) => {
+    UserModel.findOne({ 'email' : email }, (err, user) => {
+        if (err) return callback(err);
+        return callback(null, user);
     })
 }
 
