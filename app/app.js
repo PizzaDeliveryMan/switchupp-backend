@@ -8,6 +8,7 @@ const connect       = require('connect');
 const favicon       = require('serve-favicon');
 const mongoose      = require('mongoose');
 
+
 const cors          = require('cors');
 
 
@@ -37,7 +38,7 @@ mongoose.connect('mongodb://localhost:27017/feed-me', {}, (err) => {
     if (err) throw err;
 })
 
-var db = mongoose.connection;
+const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 server = app.listen(3001, function () {

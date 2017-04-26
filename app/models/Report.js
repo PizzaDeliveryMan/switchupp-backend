@@ -1,4 +1,11 @@
 const mongoose = require('mongoose');
+const filePluginLib = require('mongoose-file');
+const filePlugin = filePluginLib.filePlugin;
+const make_upload_to_model = filePluginLib.make_upload_to_model;
+
+const uploads_base = path.join(__dirname, "uploads");
+const uploads = path.join(uploads_base, "u");
+
 //const UserSchema = require('./User.js');
 
 const Schema = mongoose.Schema;
@@ -12,9 +19,16 @@ const ReportSchema = new Schema({
     },*/
     desc: {type: String, required: true },
     user: {type: String, required: true},
+
     image: {type: String, required: true}
     //user: {type: UserSchema, required: false}
 
+});
+
+ReportSchema.plugin(filePlugin, {
+	name: "photo",
+	upload_to: make_upload_to_model(uploads, 'photos'),
+	relative_to: uploads_base
 });
 
 const ReportModel = mongoose.model('Report', ReportSchema);
