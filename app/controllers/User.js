@@ -2,7 +2,7 @@ const google = require('googleapis')
 const express = require('express')
 const router = express.Router()
 
-const User = require('../models/user')
+const User = require('../models/User')
 
 const OAuth2 = google.auth.OAuth2;
 const OAuth2Client = new OAuth2(

@@ -13,8 +13,8 @@ const cors = require('cors');
 
 
 // START ROUTES
-const user          = require('./controllers/user');
-const report        = require('./controllers/report')
+const user          = require('./controllers/User');
+const report        = require('./controllers/Report')
 //END ROUTES
 
 const app = express();
