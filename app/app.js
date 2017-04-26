@@ -26,9 +26,9 @@ const app = express();
 //app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')))
 //Set pug as view engine
 // app.set('view engine', 'pug
-
-app.use(bodyParser.json()); // for parsing application/json
 app.use(cors());
+app.options('*', cors()) // include before other routes
+app.use(bodyParser.json()); // for parsing application/json
 //Routing
 app.use('/user', user);
 app.use('/report', report)
