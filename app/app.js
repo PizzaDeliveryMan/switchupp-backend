@@ -8,6 +8,8 @@ const connect       = require('connect');
 const favicon       = require('serve-favicon');
 const mongoose      = require('mongoose');
 
+const cors = require('cors');
+
 
 
 // START ROUTES
@@ -26,7 +28,7 @@ const app = express();
 // app.set('view engine', 'pug
 
 app.use(bodyParser.json()); // for parsing application/json
-
+app.use(cors());
 //Routing
 app.use('/user', user);
 app.use('/report', report)
