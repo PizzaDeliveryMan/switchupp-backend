@@ -26,7 +26,8 @@ router.get('/:userId', (req, res) => {
     })
 })
 
-router.get('/:userEmail', (req, res) => {
+router.get('/mail/:userEmail', (req, res) => {
+    console.log("test")
     const userEmail = req.params.userEmail;
     User.findUser(userEmail, (err, user) => {
         if (!user) return res.status(400).send("There's no user here.")

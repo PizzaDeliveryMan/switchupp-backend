@@ -28,6 +28,7 @@ UserModel.findUserById = (userId, callback) => {
 }
 
 UserModel.findUser = (email, callback) => {
+    console.log("kkk")
     UserModel.findOne({ 'email' : email }, (err, user) => {
         if (err) return callback(err);
         return callback(null, user);

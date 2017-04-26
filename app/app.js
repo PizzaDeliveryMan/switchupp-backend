@@ -8,7 +8,7 @@ const connect       = require('connect');
 const favicon       = require('serve-favicon');
 const mongoose      = require('mongoose');
 
-const cors = require('cors');
+const cors          = require('cors');
 
 
 

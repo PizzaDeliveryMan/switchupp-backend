@@ -24,6 +24,8 @@
     "express": "^4.15.2",
     "googleapis": "^18.0.0",
     "mongoose": "^4.8.6",
+    "mongoose-file": "0.0.2",
+    "mongoose-thumbnail": "0.0.1",
     "morgan": "^1.8.1",
     "passport-auth0": "^0.6.0",
     "path": "^0.12.7",

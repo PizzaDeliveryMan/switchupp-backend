@@ -5,10 +5,14 @@ const Schema = mongoose.Schema;
 
 const ReportSchema = new Schema({
     title: {type: String, required: true},
-    location: {
+    locname: { type: String, required: true },
+    /*location: {
         longitude: {type: Number, required: true},
-        latitude: {type: Number, required: true}
-    }
+        latitude: {type: Number, required: true},
+    },*/
+    desc: {type: String, required: true },
+    user: {type: String, required: true},
+    image: {type: String, required: true}
     //user: {type: UserSchema, required: false}
 
 });
