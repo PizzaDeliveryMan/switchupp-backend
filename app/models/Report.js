@@ -1,10 +1,8 @@
 const mongoose = require('mongoose');
-const filePluginLib = require('mongoose-file');
-const filePlugin = filePluginLib.filePlugin;
-const make_upload_to_model = filePluginLib.make_upload_to_model;
 
-const uploads_base = path.join(__dirname, "uploads");
-const uploads = path.join(uploads_base, "u");
+const crate = require('mongoose-crate')
+const LocalFS = require('mongoose-crate-localfs')
+const GraphicsMagic = require('mongoose-crate-gm')
 
 //const UserSchema = require('./User.js');
 
@@ -25,11 +23,32 @@ const ReportSchema = new Schema({
 
 });
 
-ReportSchema.plugin(filePlugin, {
-	name: "photo",
-	upload_to: make_upload_to_model(uploads, 'photos'),
-	relative_to: uploads_base
-});
+ReportSchema.plugin(crate, {
+  storage: new LocalFS({
+    directory: '/public/u'
+  }),
+  fields: {
+    image: {
+      processor: new GraphicsMagic({
+        tmpDir: '/tmp', // Where transformed files are placed before storage, defaults to os.tmpdir()
+        formats: ['JPEG', 'GIF', 'PNG'], // Supported formats, defaults to ['JPEG', 'GIF', 'PNG', 'TIFF']
+        transforms: {
+          original: {
+            // keep the original file
+          },
+          small: {
+            resize: '150x150',
+            format: '.jpg'
+          },
+          medium: {
+            resize: '250x250',
+            format: '.jpg'
+          }
+        }
+      })
+    }
+  }
+})
 
 const ReportModel = mongoose.model('Report', ReportSchema);
 
@@ -44,6 +63,7 @@ ReportModel.findReportById = (ReportId, callback) => {
 
 ReportModel.createReport = (ReportData, callback) => {
     const newReport = new ReportModel(ReportData)
+
     newReport.save((err, data) => {
         if(err) return callback(err)
         return callback(null, data)
