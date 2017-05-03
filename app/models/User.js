@@ -11,7 +11,7 @@ const UserSchema = new Schema({
     admin: { type: Boolean, required: true},
     reputation: { type: Number, required: true},
     type: { type: Number, require: true },
-    aBoolean: { type: Boolean, require: false };
+    aBoolean: { type: Boolean, require: false }
 });
 
 //Create the user model
