@@ -17,7 +17,8 @@ const ReportSchema = new Schema({
     },*/
     desc: {type: String, required: true },
     user: {type: String, required: true},
-
+    votescore: {type: Number, required: true},
+    voteuser: [userid],
     image: {type: String, required: true}
     //user: {type: UserSchema, required: false}
 
