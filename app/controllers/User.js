@@ -17,7 +17,7 @@ router.get('/:userId', (req, res) => {
     })
 })
 
-router.get('/mike/:userEmail', (req, res) => {
+router.get('/user/:userEmail', (req, res) => {
     console.log("test")
     const userEmail = req.params.userEmail;
     User.findUser(userEmail, (err, user) => {
