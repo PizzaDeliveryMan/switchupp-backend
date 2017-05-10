@@ -15,7 +15,8 @@ const cors          = require('cors');
 
 // START ROUTES
 const user          = require('./controllers/User');
-const report        = require('./controllers/Report')
+const report        = require('./controllers/Report');
+
 //END ROUTES
 
 const app = express();

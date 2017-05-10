@@ -11,15 +11,16 @@ const Schema = mongoose.Schema;
 const ReportSchema = new Schema({
     title: {type: String, required: true},
     locname: { type: String, required: true },
-    /*location: {
+    location: {
         longitude: {type: Number, required: true},
         latitude: {type: Number, required: true},
-    },*/
+    },
     desc: {type: String, required: true },
     user: {type: String, required: true},
     votescore: {type: Number, required: true},
     voteuser: [userid],
-    image: {type: String, required: true}
+    image: {type: String, required: true},
+    createdAt: {type: Date, required: true}
     //user: {type: UserSchema, required: false}
 
 });
@@ -62,9 +63,15 @@ ReportModel.findReportById = (ReportId, callback) => {
     })
 }
 
+ReportModel.getNewest = (null, callback) => {
+    ReportModel.findOne().sort({created_at: -1}) => (err, report) {
+        if (err) return callback(err);
+        return callback(null, report);
+    });
+}
+
 ReportModel.createReport = (ReportData, callback) => {
     const newReport = new ReportModel(ReportData)
-
     newReport.save((err, data) => {
         if(err) return callback(err)
         return callback(null, data)

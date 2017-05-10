@@ -12,13 +12,23 @@ router.get('/:ReportId', (req, res) => {
     })
 })
 
+router.get('/', (req, res) => {
+    Report.getNewest(null, (err, Report) => {
+        if (!Report) return res.status(400).send("There are no reports here.");
+        return res.send(Report);
+    })
+})
+
 router.post('/', (req, res) => {
     const report = req.body
+    report.createdAt = new Date();
     Report.createReport(report, (err, data) => {
         if (err) return res.status(400).send(err)
         return res.send(data)
     })
 })
+
+
 
 router.delete('/:ReportId', (req, res) => {
     const ReportId = req.params.ReportId;
