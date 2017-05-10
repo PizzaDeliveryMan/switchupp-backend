@@ -12,14 +12,14 @@ const ReportSchema = new Schema({
     title: {type: String, required: true},
 
     locname: { type: String, required: true },
-    location: {
+    /*TEMP location: {
         longitude: {type: Number, required: true},
         latitude: {type: Number, required: true},
-    },
+    },*/
 
     desc: {type: String, required: true },
     author: {type: String, required: true},
-
+    image: {type: String, required: true},
     votescore: {type: Number, required: true},
     //voteuser: {type: [UserModel.id]},
 
