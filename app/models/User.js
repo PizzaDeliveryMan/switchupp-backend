@@ -10,8 +10,8 @@ const UserSchema = new Schema({
     password: { type: String, required: true },
     admin: { type: Boolean, required: true},
     reputation: { type: Number, required: true},
-    type: { type: Number, require: true },
-    aBoolean: { type: Boolean, require: false }
+    type: { type: Number, required: true },
+    aBoolean: { type: Boolean, required: false }
 });
 
 //Create the user model
@@ -29,7 +29,7 @@ UserModel.findUserById = (userId, callback) => {
 }
 
 UserModel.findUser = (email, callback) => {
-    console.log("kkk")
+    console.log("Request to find user " + email)
     UserModel.findOne({ 'email' : email }, (err, user) => {
         if (err) return callback(err);
         return callback(null, user);
