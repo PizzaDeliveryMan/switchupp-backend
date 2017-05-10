@@ -4,7 +4,7 @@ const router = express.Router()
 const Report = require('../models/Report');
 
 
-router.get('/:ReportId', (req, res) => {
+router.get('/id/:ReportId', (req, res) => {
     const ReportId = req.params.ReportId;
     Report.findReportById(ReportId, (err, _Report) => {
         if (!_Report) return res.status(400).send("There's no Report here.");
@@ -12,10 +12,11 @@ router.get('/:ReportId', (req, res) => {
     })
 })
 
-router.get('/', (req, res) => {
-    Report.getNewest(null, (err, Report) => {
-        if (!Report) return res.status(400).send("There are no reports here.");
-        return res.send(Report);
+router.get('/all/', (req, res) => {
+    console.log("GGG")
+    Report.getNewest(true, (err, _Report) => {
+        if (!_Report) return res.status(400).send("There are no reports here.");
+        return res.send(_Report);
     })
 })
 

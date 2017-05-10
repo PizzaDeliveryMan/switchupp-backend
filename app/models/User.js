@@ -11,7 +11,8 @@ const UserSchema = new Schema({
     admin: { type: Boolean, required: true},
     reputation: { type: Number, required: true},
     type: { type: Number, required: true },
-    aBoolean: { type: Boolean, required: false }
+    aBoolean: { type: Boolean, required: false },
+    logged: {type: Boolean, required: true }
 });
 
 //Create the user model
@@ -27,6 +28,7 @@ UserModel.findUserById = (userId, callback) => {
         return callback(null, data);
     })
 }
+
 
 UserModel.findUser = (email, callback) => {
     console.log("Request to find user " + email)
