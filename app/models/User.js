@@ -38,6 +38,14 @@ UserModel.findUser = (email, callback) => {
     })
 }
 
+UserModel.findUserByUsername = (username, callback) => {
+    console.log("Request to find user " + username)
+    UserModel.findOne({ 'username' : username }, (err, user) => {
+        if (err) return callback(err);
+        return callback(null, user);
+    })
+}
+
 UserModel.createUser = (userData, callback) => {
     const newUser = new UserModel(userData);
     newUser.save((err, data) => {
