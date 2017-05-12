@@ -35,8 +35,8 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use('/user', user);
 app.use('/report', report)
 
-// mongoose.connect('mongodb://userboi:password101@ds137281.mlab.com:37281/songstress-db', {}, (err) => { 
-mongoose.connect('mongodb://localhost:27017/songstress-db', {}, (err) => {
+mongoose.connect('mongodb://userboi:password101@ds137281.mlab.com:37281/songstress-db', {}, (err) => {
+// mongoose.connect('mongodb://localhost:27017/songstress-db', {}, (err) => {
     if (err) throw err;
 })
 
@@ -44,8 +44,8 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.once('open', function() {
   // we're connected!
-  // console.log('mLab db connected!');
-  console.log('local db connected!');
+  console.log('mLab db connected!');
+  // console.log('local db connected!');
 });
 
 server = app.listen(3001, function () {
