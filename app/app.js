@@ -48,6 +48,6 @@ db.once('open', function() {
   // console.log('local db connected!');
 });
 
-server = app.listen(3001, function () {
+server = app.listen(8081, function () {
     console.log('Server running at http://localhost:' + server.address().port)
 })
