@@ -72,7 +72,7 @@ ReportModel.findReportById = (ReportId, callback) => {
 
 ReportModel.getNewest = (nothing, callback) => {
     console.log("There has been a request")
-    ReportModel.find({'visible': true}, (err, reports) => {
+    ReportModel.find({}, {}, { sort: { 'created_at' : -1 } }, (err, reports) => {
         if (err) return callback(err);
         return callback(null, reports);
     })

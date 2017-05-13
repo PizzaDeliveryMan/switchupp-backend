@@ -13,7 +13,7 @@ router.get('/id/:ReportId', (req, res) => {
 })
 
 router.get('/all/', (req, res) => {
-    console.log("GGG")
+    console.log("WTF")
     Report.getNewest(true, (err, _Report) => {
         if (!_Report) return res.status(400).send("There are no reports here.");
         return res.send(_Report);
