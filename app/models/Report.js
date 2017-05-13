@@ -70,9 +70,10 @@ ReportModel.findReportById = (ReportId, callback) => {
     })
 }
 
+// Fetch Newest Reports
 ReportModel.getNewest = (nothing, callback) => {
     console.log("There has been a request")
-    ReportModel.find({}, {}, { sort: { 'created_at' : -1 } }, (err, reports) => {
+    ReportModel.find({}, {}, { sort: { 'createdAt' : -1 } }, (err, reports) => {
         if (err) return callback(err);
         return callback(null, reports);
     })
@@ -80,6 +81,15 @@ ReportModel.getNewest = (nothing, callback) => {
         if (err) return callback(err);
         return callback(null, report);
     });*/
+}
+
+// Fetch Most Voted Reports
+ReportModel.getMostVoted = (nothing, callback) => {
+    console.log("There has been a request")
+    ReportModel.find({}, {}, { sort: { 'votescore' : -1 } }, (err, reports) => {
+        if (err) return callback(err);
+        return callback(null, reports);
+    })
 }
 
 ReportModel.createReport = (ReportData, callback) => {

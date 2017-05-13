@@ -12,9 +12,17 @@ router.get('/id/:ReportId', (req, res) => {
     })
 })
 
-router.get('/all/', (req, res) => {
-    console.log("WTF")
+router.get('/newest/', (req, res) => {
+    console.log("fetching newest posts")
     Report.getNewest(true, (err, _Report) => {
+        if (!_Report) return res.status(400).send("There are no reports here.");
+        return res.send(_Report);
+    })
+})
+
+router.get('/most-voted/', (req, res) => {
+    console.log("fetching most voted posts")
+    Report.getMostVoted(true, (err, _Report) => {
         if (!_Report) return res.status(400).send("There are no reports here.");
         return res.send(_Report);
     })
