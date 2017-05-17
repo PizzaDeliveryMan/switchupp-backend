@@ -63,6 +63,14 @@ router.delete('/:ReportId', (req, res) => {
     })
 })
 
+router.put('/:ReportId', (req, res) => {
+    const ReportId = req.params.ReportId;
+    Report.updateReportVotes(ReportId, {$set: req.body}, (err, data) => {
+        if (err) return res.status(400).send(err)
+        return res.send(data)
+    })
+})
+
 
 
 module.exports = router;

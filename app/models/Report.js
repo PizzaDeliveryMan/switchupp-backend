@@ -13,7 +13,6 @@ const ReportSchema = new Schema({
     locname: {type: String, required: true },
     lat: {type: Number, required: true},
     lon: {type: Number, required: true},
-    coords: [mongoose.Schema.Types.Mixed],
     desc: {type: String, required: true },
     author: {type: String, required: true},
     category: {type: String, required: true},
@@ -117,6 +116,13 @@ ReportModel.createReport = (ReportData, callback) => {
 ReportModel.deleteReport = (ReportId, callback) => {
     ReportModel.find( { id:ReportId } ).remove();
     return callback(null, null);
+}
+
+ReportModel.updateReportVotes = (ReportId, updateObj, callback) => {
+    ReportModel.findByIdAndUpdate(ReportId, updateObj, {new: true}, (err, reports) => {
+      if (err) return callback(err);
+      return callback(null, reports);
+    })
 }
 
 module.exports = ReportModel;

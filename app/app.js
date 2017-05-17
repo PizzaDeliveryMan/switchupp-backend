@@ -37,7 +37,7 @@ app.use(bodyParser.json({extended: true, limit: '50mb'})) // limits document siz
 app.use('/user', user)
 app.use('/report', report)
 
-mongoose.connect('mongodb://userboi:password101@ds137281.mlab.com:37281/songstress-db', {}, (err) => {
+mongoose.connect('mongodb://mlablan:mlablan@ds143231.mlab.com:43231/mlablanjiao', {}, (err) => {
 // mongoose.connect('mongodb://localhost:27017/songstress-db', {}, (err) => {
     if (err) throw err
 })

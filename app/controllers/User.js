@@ -35,9 +35,9 @@ router.get('/username/:userName', (req, res) => {
     })
 })
 
-router.put('/username/:userName', (req, res) => {
-    const userName = req.params.userName;
-    userName.updateUser(userName, (err, data) => {
+router.put('/:userID', (req, res) => {
+    const userID = req.params.userID;
+    User.updateUser(userID, {$set: req.body}, (err, data) => {
         if (err) return res.status(400).send(err)
         return res.send(data)
     })
