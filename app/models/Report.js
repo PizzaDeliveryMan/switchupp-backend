@@ -11,8 +11,9 @@ const Schema = mongoose.Schema;
 const ReportSchema = new Schema({
     title: {type: String, required: true},
     locname: {type: String, required: true },
-    lon: {type: Number, required: true},
     lat: {type: Number, required: true},
+    lon: {type: Number, required: true},
+    coords: [mongoose.Schema.Types.Mixed],
     desc: {type: String, required: true },
     author: {type: String, required: true},
     category: {type: String, required: true},

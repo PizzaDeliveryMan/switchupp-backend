@@ -54,6 +54,14 @@ UserModel.createUser = (userData, callback) => {
     })
 }
 
+UserModel.updateUser = (username, callback) => {
+    const userName = username;
+    userName.save((err, data) => {
+        if (err) return callback(err)
+        return callback(null, data)
+    })
+}
+
 UserModel.updateUser = (userData, callback) => {
     if (userData.email) {
 
