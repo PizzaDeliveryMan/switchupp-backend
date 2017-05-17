@@ -10,24 +10,19 @@ const Schema = mongoose.Schema;
 
 const ReportSchema = new Schema({
     title: {type: String, required: true},
-
-    locname: { type: String, required: true },
-    /*TEMP location: {
-        longitude: {type: Number, required: true},
-        latitude: {type: Number, required: true},
-    },*/
-
+    locname: {type: String, required: true },
+    lon: {type: Number, required: true},
+    lat: {type: Number, required: true},
     desc: {type: String, required: true },
     author: {type: String, required: true},
+    category: {type: String, required: true},
     image: {type: String, required: true},
     votescore: {type: Number, required: true},
-    //voteuser: {type: [UserModel.id]},
-
-
-
+    voteuserAll: [mongoose.Schema.Types.Mixed],
+    voteuserUp: [mongoose.Schema.Types.Mixed],
+    voteuserDown: [mongoose.Schema.Types.Mixed],
     createdAt: {type: Date, required: true},
-    category: { type: String, required: false },
-    visible: {type: Boolean, required: true }
+    visible: {type: Boolean, required: true}
     //user: {type: UserSchema, required: false}
 
 });
@@ -72,7 +67,7 @@ ReportModel.findReportById = (ReportId, callback) => {
 
 // Fetch Newest Reports
 ReportModel.getNewest = (nothing, callback) => {
-    console.log("There has been a request")
+    console.log("There has been a request for newest posts")
     ReportModel.find({}, {}, { sort: { 'createdAt' : -1 } }, (err, reports) => {
         if (err) return callback(err);
         return callback(null, reports);
@@ -85,11 +80,29 @@ ReportModel.getNewest = (nothing, callback) => {
 
 // Fetch Most Voted Reports
 ReportModel.getMostVoted = (nothing, callback) => {
-    console.log("There has been a request")
+    console.log("There has been a request for most voted posts")
     ReportModel.find({}, {}, { sort: { 'votescore' : -1 } }, (err, reports) => {
         if (err) return callback(err);
         return callback(null, reports);
     })
+}
+
+// Fetch reports via a user on the site, most recent as well
+ReportModel.getReportsByUser = (author, callback) => {
+  console.log("Request to find posts by " + author)
+  ReportModel.find({ 'author' : author }, {}, { sort: { 'createdAt' : -1 } }, (err, reports) => {
+      if (err) return callback(err);
+      return callback(null, reports);
+  })
+}
+
+// Fetch reports via categirues on the site, most recent as well
+ReportModel.getReportsByCategory = (category, callback) => {
+  console.log("Request to find posts in " + category)
+  ReportModel.find({ 'category' : category }, {}, { sort: { 'createdAt' : -1 } }, (err, reports) => {
+      if (err) return callback(err);
+      return callback(null, reports);
+  })
 }
 
 ReportModel.createReport = (ReportData, callback) => {

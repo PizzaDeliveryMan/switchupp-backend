@@ -28,6 +28,22 @@ router.get('/most-voted/', (req, res) => {
     })
 })
 
+router.get('/category/:cateGory', (req, res) => {
+    const cateGory = req.params.cateGory;
+    Report.getReportsByCategory(cateGory, (err, _Report) => {
+        if (!_Report) return res.status(400).send("There are no reports here.");
+        return res.send(_Report);
+    })
+})
+
+router.get('/username/:userName', (req, res) => {
+    const userName = req.params.userName;
+    Report.getReportsByUser(userName, (err, _Report) => {
+        if (!_Report) return res.status(400).send("There are no reports here.");
+        return res.send(_Report);
+    })
+})
+
 router.post('/', (req, res) => {
     const report = req.body
     report.createdAt = new Date();
