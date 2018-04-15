@@ -12,7 +12,6 @@ const mongoose      = require('mongoose')
 const cors          = require('cors')
 
 
-
 //START ROUTES
 const user          = require('./controllers/User')
 const report        = require('./controllers/Report')
@@ -42,7 +41,8 @@ app.use('/report', report)
 // mongoose.connect('mongodb://user:user@sandbox.mlab.com:<port-no>/databasename', {}, (err) => {
 
 //localhost
-mongoose.connect('mongodb://localhost:27017/songstress-db', {}, (err) => {
+mongoose.connect('mongodb://localhost:27017/songstress-db', {
+  useMongoClient: true,}, (err) => {
     if (err) throw err
 })
 
@@ -50,8 +50,8 @@ const db = mongoose.connection
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 db.once('open', function() {
   // we're connected!
-  console.log('mLab db connected!')
-  // console.log('local db connected!');
+  // console.log('mLab db connected!')
+  console.log('local db connected!');
 });
 
 server = app.listen(8081, function () {
