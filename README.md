@@ -1,6 +1,8 @@
-Due to popular request access to this repository will be reduced
+# Switchupp Back End
 
-Dependancies 
+> This is a fork of a University project.
+
+## Dependancies 
 
 * animejs: ^2.0.1
 * body-parser: "^1.17.1
@@ -11,7 +13,7 @@ Dependancies
 * morgan: ^1.8.1
 * path: ^0.12.7
 
-Dev Dependancies
+## Dev Dependancies
 
 * nodemon: ^1.11.0
 * mocha: ^3.2.0
