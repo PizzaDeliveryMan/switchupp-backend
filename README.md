@@ -1,4 +1,4 @@
-# Switchupp Back End
+# SwitchUpp Back End
 
 > This is a fork of a University project. I think the goal was to make something social yet niche so most of us in the group were uninterested in the topic, settling on the idea of reporting incidents of infrastructure flaws around the city since that was 'approved'. This is the back end of this debacle, using [Express](https://github.com/expressjs) and [MongoDB](https://github.com/mongodb).
 
