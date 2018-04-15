@@ -13,7 +13,7 @@ const cors          = require('cors')
 
 
 
-// START ROUTES
+//START ROUTES
 const user          = require('./controllers/User')
 const report        = require('./controllers/Report')
 
@@ -33,12 +33,16 @@ app.options('*', cors()) // include before other routes
 app.use(bodyParser.urlencoded({extended: true, limit: '50mb'})) // limits document size to 50mb, prevent error 413
 app.use(bodyParser.json({extended: true, limit: '50mb'})) // limits document size to 50mb, prevent error 413
 // app.use(bodyParser.json()) // for parsing application/json (not used since limits file size)
+
 //Routing
 app.use('/user', user)
 app.use('/report', report)
 
-mongoose.connect('mongodb://mlablan:mlablan@ds143231.mlab.com:43231/mlablanjiao', {}, (err) => {
-// mongoose.connect('mongodb://localhost:27017/songstress-db', {}, (err) => {
+// running it somewhere else (was using mlab previously)
+// mongoose.connect('mongodb://user:user@sandbox.mlab.com:<port-no>/databasename', {}, (err) => {
+
+//localhost
+mongoose.connect('mongodb://localhost:27017/songstress-db', {}, (err) => {
     if (err) throw err
 })
 
