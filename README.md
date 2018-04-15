@@ -8,7 +8,7 @@
 # install dependencies
 $ npm install
 
-# make sure you have mongod installed
+# make sure you have mongod installed on your computer
 
 # run mongod
 $ mongod
